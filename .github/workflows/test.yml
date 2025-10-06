@@ -10,7 +10,7 @@ branches:
 
 jobs:
 
-__BLANK 2__:
+test:
 
     runs-on: ubuntu-latest
 
