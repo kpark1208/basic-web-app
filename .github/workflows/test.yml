@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: bahmutov/npm-install@v1
-      - run: lint
-      - run: test
+      - run: npm run lint
+      - run: npm run test
