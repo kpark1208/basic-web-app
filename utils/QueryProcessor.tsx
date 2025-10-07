@@ -15,6 +15,38 @@ export default function QueryProcessor(query: string): string {
     return "hyeonjap";
   }
 
+  // Handle "largest number" queries
+  if (query.toLowerCase().includes("largest") && query.toLowerCase().includes("number")) {
+    // Extract numbers from the query using regex
+    const numbers = query.match(/\d+/g);
+    
+    if (numbers && numbers.length > 0) {
+      // Convert string numbers to integers
+      const numArray = numbers.map(num => parseInt(num, 10));
+      
+      // Find the largest number
+      const largest = Math.max(...numArray);
+      
+      return `${largest}`;
+    }
+  }
+
+  // Handle arithmetic queries like "What is X plus Y?"
+  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("plus")) {
+    // Extract numbers from the query using regex
+    const numbers = query.match(/\d+/g);
+    
+    if (numbers && numbers.length >= 2) {
+      // Convert string numbers to integers
+      const num1 = parseInt(numbers[0], 10);
+      const num2 = parseInt(numbers[1], 10);
+      
+      // Calculate the sum
+      const result = num1 + num2;
+      
+      return `${result}`;
+    }
+  }
 
   return "";
 }
